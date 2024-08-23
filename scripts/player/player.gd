@@ -104,6 +104,7 @@ func _physics_process(_delta: float) -> void:
     
     if direction == Vector2.ZERO:
         velocity = Vector2.ZERO
+        is_dash = false
         return
     
     if is_dash:

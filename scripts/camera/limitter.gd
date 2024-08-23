@@ -20,6 +20,3 @@ func _ready():
     
     camera.limit_bottom = limit_bottom
     camera.limit_right = limit_right
-    
-    print("camera.limit_bottom: ", camera.limit_bottom)
-    print("camera.limit_right: ", camera.limit_right)

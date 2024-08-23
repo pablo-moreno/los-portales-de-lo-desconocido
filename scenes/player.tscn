@@ -289,8 +289,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgdpj"]
-radius = 5.0
-height = 16.0
+radius = 3.0
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d1tx"]
 radius = 4.0
@@ -301,12 +301,14 @@ radius = 4.0
 height = 12.0
 
 [node name="Player" type="Node2D"]
+y_sort_enabled = true
 
 [node name="CameraLimitter" type="Node" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("4_dxxhj")
 camera = NodePath("../CharacterBody2D/CameraShake")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("1_3vp5v")
 SPEED = 100.0
 
@@ -319,6 +321,7 @@ script = ExtResource("6_vnp06")
 noise = SubResource("FastNoiseLite_5dmip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-9.53674e-07, 0)
 scale = Vector2(0.536458, 0.536458)
@@ -328,6 +331,7 @@ frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_fgdpj")
 
 [node name="Health" type="Node" parent="."]
