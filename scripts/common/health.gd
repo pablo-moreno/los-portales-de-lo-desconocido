@@ -5,15 +5,26 @@ class_name Health
 extends Node
 
 # Properties variables
+
 @export var health = 100
 @export var current_max_health = 100
 @export var invulnerability_timer: Timer = null
 
 # Signals
+
+## Emitted when the health is lowered to 0
 signal death
+
+## Emitted when health is changed
 signal change_health(new_health: int)
+
+## Emitted when max health is changed
 signal change_max_health(new_max_health: int)
+
+## Emitted when damage has been taken
 signal damaged(amount: int)
+
+## Emitted after healing
 signal healed
 
 func _ready():
