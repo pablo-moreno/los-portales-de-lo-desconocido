@@ -1,151 +1,159 @@
-[gd_scene load_steps=48 format=3 uid="uid://x5isxwh2vjfo"]
+[gd_scene load_steps=48 format=3 uid="uid://bp1cj2xf131nw"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3vp5v"]
-[ext_resource type="Texture2D" uid="uid://cffocdevpwrxu" path="res://sprites/acolyte/acolyte.png" id="2_bvmjx"]
-[ext_resource type="Script" path="res://scripts/common/health.gd" id="3_o868o"]
-[ext_resource type="Script" path="res://scripts/common/hitbox.gd" id="4_243xy"]
-[ext_resource type="Script" path="res://scripts/camera/limitter.gd" id="4_dxxhj"]
-[ext_resource type="Script" path="res://scripts/common/hurtbox.gd" id="5_6423u"]
-[ext_resource type="Script" path="res://scripts/camera/shake.gd" id="6_vnp06"]
-[ext_resource type="Script" path="res://scripts/common/shaker.gd" id="8_aq88n"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_fl2q5"]
+[ext_resource type="Script" path="res://scripts/common/health.gd" id="2_20cqf"]
+[ext_resource type="Script" path="res://scripts/common/shaker.gd" id="3_ht1nl"]
+[ext_resource type="Script" path="res://scripts/camera/limitter.gd" id="4_vogg5"]
+[ext_resource type="Script" path="res://scripts/common/hitbox.gd" id="5_fmvmm"]
+[ext_resource type="Script" path="res://scripts/common/hurtbox.gd" id="6_jeedl"]
+[ext_resource type="Script" path="res://scripts/camera/shake.gd" id="7_4r51u"]
+[ext_resource type="Texture2D" uid="uid://cffocdevpwrxu" path="res://sprites/acolyte/acolyte.png" id="8_8uv17"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d1tx"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63hbe"]
+radius = 4.0
+height = 12.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5dmip"]
 noise_type = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34u3l"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(2048, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8e74"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(2112, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sripl"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(2176, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jiow1"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(2240, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5crx"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(384, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx42m"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(448, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ni1v"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(512, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmc0w"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(576, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hn5h"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(640, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nq21t"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(704, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njtaw"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1024, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqddh"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1088, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ree0s"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1152, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xqib7"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1216, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h111w"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1280, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_562ib"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1344, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5oi78"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1408, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27otc"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1472, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ie46e"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1536, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ydnt"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1600, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoi7i"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1664, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tfsii"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1728, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3fju"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(128, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fefrq"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(192, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53apj"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(256, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_drffd"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(320, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoy8j"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(768, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v0c4"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(832, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsoof"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(896, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5h0uf"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(960, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fw1bm"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1792, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hio1"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1856, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hfaq1"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1920, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_slkgm"]
-atlas = ExtResource("2_bvmjx")
+atlas = ExtResource("8_8uv17")
 region = Rect2(1984, 0, 64, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rtklb"]
@@ -292,35 +300,51 @@ animations = [{
 radius = 3.0
 height = 10.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d1tx"]
-radius = 4.0
-height = 16.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63hbe"]
-radius = 4.0
-height = 12.0
-
-[node name="Player" type="Node2D"]
+[node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_fl2q5")
+SPEED = 100.0
+DASH_MODIFIER = null
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_20cqf")
+
+[node name="Shaker" type="Node" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("3_ht1nl")
+camera = NodePath("../CameraShake")
 
 [node name="CameraLimitter" type="Node" parent="." node_paths=PackedStringArray("camera")]
-script = ExtResource("4_dxxhj")
-camera = NodePath("../CharacterBody2D/CameraShake")
+script = ExtResource("4_vogg5")
+camera = NodePath("../CameraShake")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-y_sort_enabled = true
-script = ExtResource("1_3vp5v")
-SPEED = 100.0
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_fmvmm")
 
-[node name="CameraShake" type="Camera2D" parent="CharacterBody2D"]
+[node name="HitboxCollision" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_0d1tx")
+debug_color = Color(0, 0.724342, 0.370306, 0.42)
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_jeedl")
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_63hbe")
+debug_color = Color(0.995496, 0, 0.204212, 0.42)
+
+[node name="CameraShake" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
-script = ExtResource("6_vnp06")
+script = ExtResource("7_4r51u")
 noise = SubResource("FastNoiseLite_5dmip")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-9.53674e-07, 0)
@@ -330,32 +354,6 @@ animation = &"run"
 frame = 3
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_fgdpj")
-
-[node name="Health" type="Node" parent="."]
-script = ExtResource("3_o868o")
-
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("4_243xy")
-
-[node name="HitboxCollision" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CapsuleShape2D_0d1tx")
-debug_color = Color(0, 0.724342, 0.370306, 0.42)
-
-[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("5_6423u")
-health = NodePath("../Health")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CapsuleShape2D_63hbe")
-debug_color = Color(0.995496, 0, 0.204212, 0.42)
-
-[node name="Shaker" type="Node" parent="." node_paths=PackedStringArray("camera")]
-script = ExtResource("8_aq88n")
-camera = NodePath("../CharacterBody2D/CameraShake")

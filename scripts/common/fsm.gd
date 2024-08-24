@@ -1,6 +1,7 @@
 class_name FiniteStateMachine
 extends Node
 
+signal state_changed(new_state: State)
 @export var state: State = null
 
 func _ready():
@@ -11,3 +12,4 @@ func change_state(new_state: State):
         state._exit_state()
     new_state._enter_state()
     state = new_state
+    state_changed.emit(new_state)

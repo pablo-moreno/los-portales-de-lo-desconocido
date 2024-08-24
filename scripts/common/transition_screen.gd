@@ -15,8 +15,8 @@ func transition():
     color_rect.visible = true
     player.play("fade_to_black")
 
-func _on_animation_finished(name) -> void:
-    if name == "fade_to_black":
+func _on_animation_finished(animation_name) -> void:
+    if animation_name == "fade_to_black":
         player.play("fade_to_normal")
         on_transition_finished.emit()
     else:

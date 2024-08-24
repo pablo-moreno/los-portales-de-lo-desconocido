@@ -1,78 +1,59 @@
 class_name Player
 extends CharacterBody2D
 
-enum ORIENTATION {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-}
 
 @export var SPEED: float = 300.0
 @export var DASH_MODIFIER: float = 3.5
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
-var previous_orientation = ORIENTATION.DOWN
+var previous_orientation = OrientationHandler.ORIENTATION.DOWN
 var previous_animation = "idle"
 var is_dash = false
 
 
-func _get_orientation_from_direction(input_direction: Vector2):
-    if input_direction.x < 0 and abs(input_direction.x) > abs(input_direction.y):
-        return ORIENTATION.LEFT
-
-    elif input_direction.x > 0 and abs(input_direction.x) > abs(input_direction.y):
-        return ORIENTATION.RIGHT
-        
-    elif input_direction.y < 0 and abs(input_direction.y) > abs(input_direction.x):
-        return ORIENTATION.UP
-        
-    elif input_direction.y > 0 and abs(input_direction.y) > abs(input_direction.x):
-        return ORIENTATION.DOWN
-
 func _handle_animation(direction: Vector2) -> void:
-    var orientation = _get_orientation_from_direction(direction)
+    var orientation = OrientationHandler.get_orientation_from_direction(direction)
     var new_animation = previous_animation
     
     # DASH
-    if is_dash and previous_orientation == ORIENTATION.UP:
+    if is_dash and previous_orientation == OrientationHandler.ORIENTATION.UP:
         animation.flip_h = false
         new_animation = "run_back"
-    elif is_dash and previous_orientation == ORIENTATION.DOWN:
+    elif is_dash and previous_orientation == OrientationHandler.ORIENTATION.DOWN:
         animation.flip_h = false
         new_animation = "run"
-    elif is_dash and previous_orientation == ORIENTATION.RIGHT:
+    elif is_dash and previous_orientation == OrientationHandler.ORIENTATION.RIGHT:
         animation.flip_h = false
         new_animation = "dash"
-    elif is_dash and previous_orientation == ORIENTATION.LEFT:
+    elif is_dash and previous_orientation == OrientationHandler.ORIENTATION.LEFT:
         animation.flip_h = true
         new_animation = "dash"
 
     # IDLE
-    elif direction == Vector2.ZERO and previous_orientation == ORIENTATION.UP:
+    elif direction == Vector2.ZERO and previous_orientation == OrientationHandler.ORIENTATION.UP:
         animation.flip_h = false
         new_animation = "idle_back"
-    elif direction == Vector2.ZERO and previous_orientation == ORIENTATION.DOWN:
+    elif direction == Vector2.ZERO and previous_orientation == OrientationHandler.ORIENTATION.DOWN:
         animation.flip_h = false
         new_animation = "idle"
-    elif direction == Vector2.ZERO and previous_orientation == ORIENTATION.RIGHT:
+    elif direction == Vector2.ZERO and previous_orientation == OrientationHandler.ORIENTATION.RIGHT:
         animation.flip_h = false
         new_animation = "idle_side"
-    elif direction == Vector2.ZERO and previous_orientation == ORIENTATION.LEFT:
+    elif direction == Vector2.ZERO and previous_orientation == OrientationHandler.ORIENTATION.LEFT:
         animation.flip_h = true
         new_animation = "idle_side"
 
     # RUNNING
-    elif orientation == ORIENTATION.UP:
+    elif orientation == OrientationHandler.ORIENTATION.UP:
         animation.flip_h = false
         new_animation = "run_back"
-    elif orientation == ORIENTATION.DOWN:
+    elif orientation == OrientationHandler.ORIENTATION.DOWN:
         animation.flip_h = false
         new_animation = "run"
-    elif orientation == ORIENTATION.RIGHT:
+    elif orientation == OrientationHandler.ORIENTATION.RIGHT:
         animation.flip_h = false
         new_animation = "run_side"
-    elif orientation == ORIENTATION.LEFT:
+    elif orientation == OrientationHandler.ORIENTATION.LEFT:
         animation.flip_h = true
         new_animation = "run_side"
     
@@ -99,10 +80,11 @@ func _physics_process(_delta: float) -> void:
     
     if Input.is_action_just_pressed("dash") and is_axis:
         is_dash = true
-    if Input.is_action_just_pressed("ui_accept"):
-        TransitionScreen.transition()
-        await TransitionScreen.on_transition_finished
-    
+        
+    #if Input.is_action_just_pressed("ui_accept"):
+        #TransitionScreen.transition()
+        #await TransitionScreen.on_transition_finished
+    #
     _handle_animation(direction)
     
     if direction == Vector2.ZERO:
