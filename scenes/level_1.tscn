@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://cgcs1k4kty7vb"]
+[gd_scene load_steps=7 format=4 uid="uid://cgcs1k4kty7vb"]
 
 [ext_resource type="PackedScene" uid="uid://dyf4voe8j4qtj" path="res://scenes/enemies/cosmic_horror/cosmic_horror.tscn" id="1_5i6we"]
+[ext_resource type="PackedScene" uid="uid://dkpdjhv5reu5w" path="res://scenes/enemies/tentacle/tentacle.tscn" id="1_q3ynu"]
 [ext_resource type="TileSet" uid="uid://dfdmqf7puegni" path="res://sprites/tilesets/dungeon_tileset.tres" id="1_s2xap"]
 [ext_resource type="PackedScene" uid="uid://bp1cj2xf131nw" path="res://scenes/player.tscn" id="2_7lpu1"]
 [ext_resource type="PackedScene" uid="uid://bl7clu3wat1n8" path="res://scenes/fire_point.tscn" id="3_f6q7u"]
@@ -13,13 +14,19 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(114, 50, 286, 50, 286, 
 [node name="Dungeon" type="Node2D"]
 y_sort_enabled = true
 
+[node name="Tentacle" parent="." instance=ExtResource("1_q3ynu")]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(235, 65)
+
 [node name="Player" parent="." instance=ExtResource("2_7lpu1")]
 z_index = 2
 position = Vector2(199, 100)
+DASH_MODIFIER = 3.5
 
 [node name="CosmicHorror" parent="." instance=ExtResource("1_5i6we")]
 z_index = 2
-position = Vector2(162, 90)
+position = Vector2(134, 74)
 
 [node name="Background" type="TileMapLayer" parent="."]
 z_index = -1

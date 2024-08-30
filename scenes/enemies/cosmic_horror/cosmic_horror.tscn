@@ -321,6 +321,7 @@ navigation_agent = NodePath("../../NavigationAgent2D")
 shape = SubResource("CircleShape2D_hlivc")
 target_position = Vector2(0, 48)
 max_results = 31
+collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

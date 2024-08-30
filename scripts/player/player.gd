@@ -10,7 +10,6 @@ var previous_orientation = OrientationHandler.ORIENTATION.DOWN
 var previous_animation = "idle"
 var is_dash = false
 
-
 func _handle_animation(direction: Vector2) -> void:
     var orientation = OrientationHandler.get_orientation_from_direction(direction)
     var new_animation = previous_animation

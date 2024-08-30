@@ -55,6 +55,7 @@ func _handle_orientation():
             sprite.flip_h = false
             cast.rotation_degrees = 270
 
+
     elif current_state is ChaseState:
         if orientation == OrientationHandler.ORIENTATION.UP:
             sprite.play("attack_top")
