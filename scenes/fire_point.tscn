@@ -14,9 +14,8 @@ fill_to = Vector2(0.84188, 0.230769)
 
 [node name="PointLight2D" type="PointLight2D" node_paths=PackedStringArray("timer")]
 texture_filter = 1
-position = Vector2(-3, -0.999985)
 scale = Vector2(2.95473, 2.79107)
-color = Color(0.855781, 0.545815, 0.190848, 1)
+color = Color(0.209147, 0.714774, 0.647655, 1)
 energy = 0.68
 texture = SubResource("GradientTexture2D_w2opf")
 texture_scale = 0.78

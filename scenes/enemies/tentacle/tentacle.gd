@@ -8,7 +8,7 @@ extends CharacterBody2D
 func _ready() -> void:
     sprite.play("idle")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     if cast.is_colliding():
         sprite.play("attack")
         hitbox_collision.disabled = false

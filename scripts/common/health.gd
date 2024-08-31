@@ -28,6 +28,9 @@ signal damaged(amount: int)
 signal healed
 
 func _ready():
+    change_health.emit(health)
+    change_max_health.emit(current_max_health)
+    
     if invulnerability_timer != null:
         invulnerability_timer.one_shot = true
 

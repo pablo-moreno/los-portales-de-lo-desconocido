@@ -4,10 +4,6 @@
 [ext_resource type="Script" path="res://scenes/enemies/tentacle/tentacle.gd" id="1_lwmlj"]
 [ext_resource type="Script" path="res://scripts/common/hitbox.gd" id="3_8u10h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ks6q"]
-atlas = ExtResource("1_eq8ev")
-region = Rect2(240, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfcay"]
 atlas = ExtResource("1_eq8ev")
 region = Rect2(288, 0, 48, 48)
@@ -19,6 +15,10 @@ region = Rect2(336, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hvc5"]
 atlas = ExtResource("1_eq8ev")
 region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ks6q"]
+atlas = ExtResource("1_eq8ev")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tixi1"]
 atlas = ExtResource("1_eq8ev")
@@ -43,9 +43,6 @@ region = Rect2(192, 0, 48, 48)
 [sub_resource type="SpriteFrames" id="SpriteFrames_kallb"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ks6q")
-}, {
 "duration": 0.75,
 "texture": SubResource("AtlasTexture_vfcay")
 }, {
@@ -54,6 +51,9 @@ animations = [{
 }, {
 "duration": 1.25,
 "texture": SubResource("AtlasTexture_2hvc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ks6q")
 }],
 "loop": false,
 "name": &"attack",
@@ -98,7 +98,7 @@ position = Vector2(-1.90735e-06, -2)
 scale = Vector2(0.875, 0.909539)
 sprite_frames = SubResource("SpriteFrames_kallb")
 animation = &"attack"
-frame = 3
+frame = 2
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -110,7 +110,10 @@ shape = SubResource("CircleShape2D_qwifh")
 target_position = Vector2(0, 0)
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("3_8u10h")
+damage = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_h5pjt")

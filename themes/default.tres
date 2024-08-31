@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7e43vm7n51ic"]
+
+[ext_resource type="FontFile" uid="uid://b45xkgcqeq5w5" path="res://themes/sd_auto_pilot.ttf" id="1_1c631"]
+
+[resource]
+default_font = ExtResource("1_1c631")
+default_font_size = 32

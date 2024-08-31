@@ -4,7 +4,14 @@ extends CharacterBody2D
 
 @export var SPEED: float = 300.0
 @export var DASH_MODIFIER: float = 3.5
+@export var CAMERA_TRAUMA: float = 1
+
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+
+@onready var progress_bar: ProgressBar = $CameraShake/UI/Sprite2D/ProgressBar
+@onready var health: Health = $Health
+
+@onready var camera: CameraShake = $CameraShake
 
 var previous_orientation = OrientationHandler.ORIENTATION.DOWN
 var previous_animation = "idle"
@@ -77,8 +84,8 @@ func _physics_process(_delta: float) -> void:
     if not is_axis:
         is_dash = false
     
-    if Input.is_action_just_pressed("dash") and is_axis:
-        is_dash = true
+    # if Input.is_action_just_pressed("dash") and is_axis:
+    #     is_dash = true
         
     #if Input.is_action_just_pressed("ui_accept"):
         #TransitionScreen.transition()
@@ -96,3 +103,9 @@ func _physics_process(_delta: float) -> void:
     
     velocity = direction * speed
     move_and_slide()
+
+
+func _on_health_damaged(amount: int) -> void:
+    var trauma = lerp(0.0, float(CAMERA_TRAUMA), float(amount) / float(health.current_max_health)) * 4
+    print("trauma: ", trauma)
+    camera.add_trauma(trauma)

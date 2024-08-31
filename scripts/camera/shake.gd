@@ -7,8 +7,10 @@ extends Camera2D
 
 # How quickly shaking will stop [0,1].
 @export var decay := 0.8 
+
 # Maximum displacement in pixels.
 @export var max_offset := Vector2(100,75)
+
 # Maximum rotation in radians (use sparingly).
 @export var max_roll = 0.0
 # The source of random values.
@@ -34,7 +36,7 @@ func _process(delta):
     if trauma:
         trauma = max(trauma - decay * delta, 0)
         shake()
-        #optional
+    #optional
     elif offset.x != 0 or offset.y != 0 or rotation != 0:
         lerp(offset.x, 0.0, 1)
         lerp(offset.y, 0.0, 1)

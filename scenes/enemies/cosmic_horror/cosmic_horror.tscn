@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dyf4voe8j4qtj"]
+[gd_scene load_steps=44 format=3 uid="uid://dyf4voe8j4qtj"]
 
 [ext_resource type="Texture2D" uid="uid://bcdlx4pj8d8jy" path="res://sprites/acolyte/horror.png" id="1_1kd1p"]
 [ext_resource type="Script" path="res://scenes/enemies/cosmic_horror/cosmic_horror.gd" id="1_kvkq0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/common/fsm.gd" id="4_ios3j"]
 [ext_resource type="Script" path="res://scenes/enemies/cosmic_horror/states/wander_state.gd" id="6_hpg0u"]
 [ext_resource type="Script" path="res://scenes/enemies/cosmic_horror/states/chase_state.gd" id="7_06yk8"]
+[ext_resource type="Script" path="res://scripts/common/hitbox.gd" id="8_2n6ja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqslp"]
 atlas = ExtResource("1_1kd1p")
@@ -278,6 +279,8 @@ _data = {
 "cast_right": SubResource("Animation_cldyr")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2tdk"]
+
 [node name="CosmicHorror" type="CharacterBody2D"]
 script = ExtResource("1_kvkq0")
 movement_speed = 50.0
@@ -292,6 +295,8 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_ly8av")
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("2_nbtsc")
 health = NodePath("../Health")
 
@@ -321,7 +326,6 @@ navigation_agent = NodePath("../../NavigationAgent2D")
 shape = SubResource("CircleShape2D_hlivc")
 target_position = Vector2(0, 48)
 max_results = 31
-collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -331,5 +335,14 @@ libraries = {
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 8.0
 target_desired_distance = 8.0
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("8_2n6ja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_j2tdk")
+debug_color = Color(0.785583, 0.432773, 0, 0.42)
 
 [connection signal="state_changed" from="FiniteStateMachine" to="." method="_on_finite_state_machine_state_changed"]

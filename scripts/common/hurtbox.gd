@@ -12,12 +12,14 @@ signal knockback_received(direction: Vector2, amount: float)
 
 
 func _ready():
+    area_entered.connect(_on_area_entered)
     assert(health != null)
 
-    self.connect("area_entered", _on_area_entered)
 
-
-func _on_area_entered(hitbox: HitBox):
+func _on_area_entered(hitbox):
+    if hitbox is not HitBox:
+        return
+    
     # Check if the hitbox is a sibling
     var is_sibling: bool = hitbox.get_parent() == get_parent()
 

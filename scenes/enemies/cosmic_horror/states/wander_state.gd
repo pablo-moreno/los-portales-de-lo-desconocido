@@ -14,7 +14,6 @@ func _ready() -> void:
 
 func _navigation_ended():
     var random_point = _get_random_point()
-    print("random point ", random_point)
     set_movement_target(random_point)
     navigation_ended.emit()
 
