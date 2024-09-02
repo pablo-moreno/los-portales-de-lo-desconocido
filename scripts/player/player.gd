@@ -63,14 +63,15 @@ func _handle_animation(direction: Vector2) -> void:
         animation.flip_h = true
         new_animation = "run_side"
     
+    previous_orientation = orientation
+    previous_animation = new_animation
+    
     if is_dash and not animation.is_playing():
         is_dash = false
         return
 
     animation.play(new_animation)
 
-    previous_orientation = orientation
-    previous_animation = new_animation
 
 func _physics_process(_delta: float) -> void:
     # Get the input direction and handle the movement/deceleration.

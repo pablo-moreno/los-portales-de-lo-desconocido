@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bp1cj2xf131nw"]
+[gd_scene load_steps=51 format=3 uid="uid://bp1cj2xf131nw"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_fl2q5"]
 [ext_resource type="Script" path="res://scripts/common/health.gd" id="2_20cqf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cffocdevpwrxu" path="res://sprites/acolyte/acolyte.png" id="8_8uv17"]
 [ext_resource type="PackedScene" uid="uid://cyr51uwvi3mvr" path="res://scenes/ui.tscn" id="8_th4ds"]
 [ext_resource type="Script" path="res://scripts/player/actions.gd" id="9_l5jtn"]
+[ext_resource type="PackedScene" uid="uid://cef4hii7makj7" path="res://scenes/attacks/sword.tscn" id="11_qqyct"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d1tx"]
 radius = 4.0
@@ -366,7 +367,10 @@ shape = SubResource("CapsuleShape2D_fgdpj")
 [node name="PlayerActions" type="Node" parent="."]
 script = ExtResource("9_l5jtn")
 
+[node name="Sword" parent="." instance=ExtResource("11_qqyct")]
+
 [connection signal="change_health" from="Health" to="CameraShake/UI" method="_on_health_change_health"]
 [connection signal="change_max_health" from="Health" to="CameraShake/UI" method="_on_health_change_max_health"]
 [connection signal="damaged" from="Health" to="." method="_on_health_damaged"]
 [connection signal="death" from="Health" to="CameraShake/UI" method="_on_health_death"]
+[connection signal="attacking" from="PlayerActions" to="Sword" method="_on_player_actions_attacking"]
